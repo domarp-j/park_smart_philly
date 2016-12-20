@@ -35,6 +35,8 @@ gem 'figaro'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'jazz_fingers'
+  gem 'pry-rails'
 end
 
 group :development do
