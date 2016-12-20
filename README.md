@@ -1,2 +1,3 @@
-# park_smart
-Find out just how vigilant parking inspectors are near you. 
+# Park Smart Philly 
+
+Find out just how vigilant parking inspectors are near you.
