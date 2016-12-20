@@ -1,0 +1,17 @@
+<h1>Activities Feed</h1>
+
+<% if current_user %>
+  <%= form_for @activity do |f| %>
+    <%= f.text_area :body, placeholder: "Share some parking advice to other Philadelphians!",
+      rows: 3, cols: 40 %>
+    <%= f.submit "Post" %>
+  <% end %>
+<% end %>
+
+<% if @activities.empty? %>
+  <p>No activities to show...</p>
+<% else %>
+  <% @activities.each do |activity| %>
+    <%= render partial: "activity", locals: { activity: activity } %>
+  <% end %>
+<% end %>

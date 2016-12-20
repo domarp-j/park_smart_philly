@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_secure_password
+  has_many :activities, foreign_key: :author_id, dependent: :destroy
 
   validates :username, :email, presence: true
   validates :email, uniqueness: true
