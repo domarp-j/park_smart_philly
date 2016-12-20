@@ -1,0 +1,12 @@
+
+<!--Flash Messages-->
+
+<div class="flash-messages">
+
+  <strong>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, :class => "") %>
+    <% end %>
+  </strong>
+
+</div>
