@@ -19,11 +19,13 @@ results = parking_violation_data
 
 # Create ParkingViolation objects from the data.
 puts "Creating new parking violation entries from API data..."
+puts "Note: this will take a while! Go grab some tea."
 results.each do |result|
 
   # Get the latitude and longitude values for the address.
   # Sleep a bit so that the API doesn't take too many hits.
   violation_location = result["location"]
+  next if violation_location.nil?
   response = HTTParty.get(build_geocode_api_request(violation_location))
   sleep(0.5)
   geolocation_data = JSON.parse(response.body)
@@ -40,5 +42,5 @@ results.each do |result|
 
 end
 
-response = HTTParty.get(build_geocode_api_request("west broad st"))
-p response
+# Finished!
+puts "Done!"

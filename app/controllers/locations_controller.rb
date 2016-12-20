@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class LocationsController < ApplicationController
 
   def new
@@ -7,8 +9,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(strong_location_params)
-    @location.get_latitude
-    @location.get_longitude
+    @location.set_time
+    @location.set_latitude_and_longitude
 
     if @location.save
       flash[:success] = "Here are your results."
@@ -20,6 +22,9 @@ class LocationsController < ApplicationController
   end
 
   def show
+    binding.pry
+    @location = Location.find(params[:id])
+    @parking_violations = @location.nearby_violations(1)
     render :home
   end
 

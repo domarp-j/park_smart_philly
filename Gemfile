@@ -33,7 +33,9 @@ gem 'soda-ruby', require: 'soda'
 # Use Figaro for protecting sensitive information
 gem 'figaro'
 # Use HTTParty to get data via requests
-gem 'httparty' 
+gem 'httparty'
+# Use Haversine to get distances between latitudes & longitudes
+gem 'haversine'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -48,6 +50,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
