@@ -9,7 +9,6 @@ class ParkingViolationsController < ApplicationController
       flash[:success] = "Thank you for helping us be better!"
       redirect_back fallback_location: root_path
     else
-      fail
       flash[:error] = "Sorry, we couldn't save that information."
       redirect_back fallback_location: root_path
     end

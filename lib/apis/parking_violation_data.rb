@@ -10,5 +10,5 @@ def parking_violation_data
     :domain => "data.phila.gov",
     :app_token => ENV["SOCRATA_APP_TOKEN"]
   })
-  results = client.get("2pfz-fnns")
+  results = client.get("2pfz-fnns", :$limit => 100)
 end
