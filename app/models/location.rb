@@ -10,7 +10,7 @@ class Location < ApplicationRecord
   validates :address, :time, :latitude, :longitude, presence: :true
 
   def set_time
-    time = DateTime.now
+    self.time = DateTime.now
   end
 
   def set_latitude_and_longitude

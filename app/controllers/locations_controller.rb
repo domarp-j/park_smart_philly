@@ -18,8 +18,9 @@ class LocationsController < ApplicationController
       flash[:success] = "Successfully received location."
       redirect_to location_path(@location)
     else
+      fail
       flash[:error] = "Could not receive location."
-      render :new
+      redirect_to new_location_path
     end
   end
 

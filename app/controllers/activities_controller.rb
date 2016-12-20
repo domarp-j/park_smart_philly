@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = current_user.activities.build(strong_activity_params)
-    @activity.post_time = DateTime.now
+    @activity.post_time = DateTime.now # TODO: set_post_time method?
 
     if @activity.save
       flash[:success] = "New post created!"
