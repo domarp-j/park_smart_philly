@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'soda-ruby', require: 'soda'
 # Use Figaro for protecting sensitive information
 gem 'figaro'
+# Use HTTParty to get data via requests
+gem 'httparty' 
 
 group :development, :test do
   gem 'pry-byebug'

@@ -10,18 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220055328) do
+ActiveRecord::Schema.define(version: 20161220172519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "time"
+  t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
   create_table "parking_violations", force: :cascade do |t|
     t.float    "fine"
     t.string   "location"
-    t.string   "violation_description"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.datetime "issue_date_time"
+    t.float    "location_latitude"
+    t.float    "location_longitude"
+    t.string   "description"
   end
 
 end

@@ -1,0 +1,8 @@
+<h1>Park Smart Philly</h1>
+
+<h3>Play it safe - if you're in Philly, find parking violations near you!</h3>
+
+<%= form_for @location do |f| %>
+  <%= f.text_field :address, placeholder: "Enter a Philadelphia address here." %>
+  <%= f.submit "Search" %>
+<% end %>
