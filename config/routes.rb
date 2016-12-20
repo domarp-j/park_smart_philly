@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :parking_violations, only: [:create]
   resources :locations, only: [:new, :create, :update, :show]
-  resources :users
+  resources :users, except: [:index, :destroy]
   resources :activities, only: [:index, :create]
 
 end

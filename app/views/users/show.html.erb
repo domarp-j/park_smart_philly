@@ -1,0 +1,10 @@
+<h1><%= @user.username %> - Profile</h1>
+
+<h3>Activities</h3>
+<% if @user.activities.empty? %>
+  <p>This user has no activity.</p>
+<% else %>
+  <% @user.activities.each do |activity| %>
+    <%= render partial: 'activities/activity', locals: { activity: activity } %>
+  <% end %>
+<% end %>
