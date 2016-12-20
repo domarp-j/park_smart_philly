@@ -1,0 +1,9 @@
+
+<!--Comment Form-->
+
+<%= form_for comment do |f| %>
+  <%= f.text_area :body, rows: "2", placeholder: "Write a comment..." %>
+  <%= f.hidden_field :commentable_id, value: commentable.id %>
+  <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+  <%= f.submit "Comment" %>
+<% end %>

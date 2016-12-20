@@ -1,2 +1,23 @@
-<p><%= activity.post_time %> <br>
-<%= activity.body %> - <%= activity.author.username %></p>
+<div class="activity">
+
+  <p><%= activity.post_time %> <br>
+  <%= activity.body %> - <%= activity.author.username %></p>
+
+  <div class="comment-section">
+
+    <% if activity.comments.any? %>
+      <% activity.comments.each do |comment| %>
+        <%= render partial: 'shared/comment', locals: { comment: comment } %>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
+      <%= render partial: "shared/comment_form", locals: {
+        commentable: activity,
+        comment: Comment.new
+      } %>
+    <% end %>
+
+  </div>
+
+</div>

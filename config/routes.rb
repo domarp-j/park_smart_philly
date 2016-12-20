@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :locations, only: [:new, :create, :update, :show]
   resources :users, except: [:index, :destroy]
   resources :activities, only: [:index, :create]
+  resources :comments, only: [:create]
 
 end
