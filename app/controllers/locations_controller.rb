@@ -13,16 +13,15 @@ class LocationsController < ApplicationController
     @location.set_latitude_and_longitude
 
     if @location.save
-      flash[:success] = "Here are your results."
+      flash[:success] = "Successfully received location."
       redirect_to location_path(@location)
     else
-      flash[:error] = "We could not generate results."
+      flash[:error] = "Could not receive location."
       render :new
     end
   end
 
   def show
-    binding.pry
     @location = Location.find(params[:id])
     @parking_violations = @location.nearby_violations(1)
     render :home

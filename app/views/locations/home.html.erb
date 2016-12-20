@@ -1,12 +1,26 @@
+
 <h1>Park Smart Philly</h1>
 
 <h3>Play it safe - if you're in Philly, find parking violations near you!</h3>
 
 <%= form_for @location do |f| %>
   <%= f.text_field :address, placeholder: "Enter a Philadelphia address here." %>
+  <!--TODO: distance-->
+  <!--TODO: earliest date-->
   <%= f.submit "Search" %>
 <% end %>
 
 <% if @parking_violations %>
-  <%= render @parking_violations %>
+
+  <% if @parking_violations.empty? %>
+    <h3>No recent parking violations within 1 mile of you!</h3>
+  <% else %>
+    <h3>We found some parking violations within 1 mile of you:</h3>
+    <ul>
+      <% @parking_violations.each do |pv| %>
+        <%= render partial: "parking_violation", locals: { parking_violation: pv } %>
+      <% end %>
+    </ul>
+  <% end %>
+
 <% end %>
