@@ -14,6 +14,7 @@ require 'json'
 puts "Destroying all previous parkring violation entries..."
 Location.destroy_all
 ParkingViolation.destroy_all # TODO: truly necessary?
+User.destroy_all
 
 # Call the method provided by the file above, then store the data in "results".
 results = parking_violation_data
