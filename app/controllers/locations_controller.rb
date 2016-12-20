@@ -2,12 +2,28 @@ require 'pry-byebug'
 
 class LocationsController < ApplicationController
 
+  before_action :new_parking_violation, only: [:new, :show]
+
   def new
     @location = Location.new
     render :home
   end
 
   def create
+    @location = Location.new(strong_location_params)
+    @location.set_time
+    @location.set_latitude_and_longitude
+
+    if @location.save
+      flash[:success] = "Successfully received location."
+      redirect_to location_path(@location)
+    else
+      flash[:error] = "Could not receive location."
+      render :new
+    end
+  end
+
+  def update # TODO: exact same as create...consolidate
     @location = Location.new(strong_location_params)
     @location.set_time
     @location.set_latitude_and_longitude

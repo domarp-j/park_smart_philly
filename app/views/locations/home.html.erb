@@ -1,4 +1,3 @@
-
 <h1>Park Smart Philly</h1>
 
 <h3>Play it safe - if you're in Philly, find parking violations near you!</h3>
@@ -8,6 +7,21 @@
   <!--TODO: distance-->
   <!--TODO: earliest date-->
   <%= f.submit "Search" %>
+<% end %>
+
+<h3>Find recently? My condolences! Help us out by telling us about it.<br>
+We can help you play it safe in the future!</h3>
+
+<%= form_for @new_parking_violation do |f| %>
+  <%= f.label "When were you fined?" %>
+  <%= f.datetime_select :issue_date_time %><br>
+  <%= f.label "Where were you fined?" %>
+  <%= f.text_field :location %><br>
+  <%= f.label "What were you fined for?" %>
+  <%= f.text_field :description %><br>
+  <%= f.label "How much were you fined?" %>
+  <%= f.text_field :fine %><br>
+  <%= f.submit "Submit" %>
 <% end %>
 
 <% if @parking_violations %>
@@ -22,5 +36,7 @@
       <% end %>
     </ul>
   <% end %>
+
+  <!--TODO: statistical averages of parking violations-->
 
 <% end %>

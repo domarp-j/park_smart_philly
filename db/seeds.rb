@@ -12,6 +12,7 @@ require 'json'
 
 # Delete all previous entries, for the purpose of seeding
 puts "Destroying all previous parkring violation entries..."
+Location.destroy_all
 ParkingViolation.destroy_all # TODO: truly necessary?
 
 # Call the method provided by the file above, then store the data in "results".
@@ -30,13 +31,18 @@ results.each do |result|
   sleep(0.5)
   geolocation_data = JSON.parse(response.body)
 
+  # Don't create if latitude or longitude are nil
+  latitude = get_latitude(geolocation_data)
+  longitude = get_longitude(geolocation_data)
+  next if latitude.nil? || longitude.nil?
+
   # Finally, the ParkingViolation instances are created.
   ParkingViolation.create(
     fine: result["fine"].to_f,
     issue_date_time: DateTime.parse(result["issue_date_and_time"]), # TODO: saves as UTC, but should be EST
     location: violation_location,
-    location_latitude: get_latitude(geolocation_data),
-    location_longitude: get_longitude(geolocation_data),
+    location_latitude: latitude,
+    location_longitude: longitude,
     description: result["violation_description"]
   )
 

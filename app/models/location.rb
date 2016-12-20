@@ -7,6 +7,8 @@ require 'haversine'
 
 class Location < ApplicationRecord
 
+  validates :address, :time, :latitude, :longitude, presence: :true
+
   def set_time
     time = DateTime.now
   end

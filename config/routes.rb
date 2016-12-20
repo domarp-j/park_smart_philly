@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :locations, only: [:new, :create, :show]
+  resources :parking_violations, only: [:create]
+  resources :locations, only: [:new, :create, :update, :show]
   root "locations#new"
 
 end
