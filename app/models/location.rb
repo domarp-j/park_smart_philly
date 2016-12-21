@@ -25,7 +25,7 @@ class Location < ApplicationRecord
   end
 
   def nearby_violations(miles=1)
-    delta = 0.005 * miles # TODO: definitely not exact...
+    delta = 0.005 * miles # TODO: only approximate, for now
 
     min_lat, min_lng = self.latitude - delta, self.longitude - delta
     max_lat, max_lng = self.latitude + delta, self.longitude + delta
