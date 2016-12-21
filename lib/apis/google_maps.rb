@@ -3,8 +3,6 @@
 # Details on the API can be found here:
 # https://developers.google.com/maps/
 
-require 'pry-byebug'
-
 module GoogleMapsAPI
 
   def build_geocode_api_request(address)
