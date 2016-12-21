@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class LocationsController < ApplicationController
 
   before_action :new_parking_violation, only: [:new, :show]
