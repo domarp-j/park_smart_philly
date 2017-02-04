@@ -17,4 +17,4 @@ should & shouldn't park. Help all Philadelphians park a bit smarter!
 
 ## Heroku Domain
 
-https://mysterious-brook-13926.herokuapp.com/
+https://park-smart-philly.herokuapp.com/
