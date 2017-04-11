@@ -17,4 +17,4 @@ should & shouldn't park. Help all Philadelphians park a bit smarter!
 
 ## Heroku Domain
 
-~~https://park-smart-philly.herokuapp.com/~~(Deleted)
+~~https://park-smart-philly.herokuapp.com/~~ (Deleted)
